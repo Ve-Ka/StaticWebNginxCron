@@ -35,7 +35,7 @@ else
     echo \`date +'%Y-%m-%d %H:%M:%S'\`" ::: Git Pull FAILED" >> \$cronLog
 fi
 EOF
-# Bug with tee command above adding carridge-return ^M character at end of each line
+# Bug with tee command above adding carriage-return ^M character at end of each line
 RUN sed -i 's/\r$//' /home/gitPull.sh
 RUN chmod +x /home/gitPull.sh
 RUN echo '* */6 * * * /home/gitPull.sh >/dev/null 2>&1' >> /etc/crontabs/root
