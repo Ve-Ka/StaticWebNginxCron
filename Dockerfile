@@ -38,5 +38,5 @@ EOF
 # Bug with tee command above adding carriage-return ^M character at end of each line
 RUN sed -i 's/\r$//' /home/gitPull.sh
 RUN chmod +x /home/gitPull.sh
-RUN echo '* */6 * * * /home/gitPull.sh >/dev/null 2>&1' >> /etc/crontabs/root
+RUN echo '0 */6 * * * /home/gitPull.sh >/dev/null 2>&1' >> /etc/crontabs/root
 CMD crond && nginx -g "daemon off;"
