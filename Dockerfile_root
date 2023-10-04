@@ -4,7 +4,7 @@ ARG filename
 ARG webrootpath="/usr/share/nginx/$filename"
 ARG fqdn
 RUN apk add --no-cache git
-RUN git clone $giturl $webrootpath/$filename
+RUN git clone $giturl $webrootpath
 RUN tee /etc/nginx/conf.d/default.conf > /dev/null <<EOF
 server {
     listen 80 default_server;
