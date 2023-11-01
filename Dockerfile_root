@@ -22,10 +22,10 @@ EOF
 RUN tee /home/gitPull.sh > /dev/null <<EOF
 cronLog='/home/cron.log'
 echo \`date +'%Y-%m-%d %H:%M:%S'\`" ::: Git Pull START" >> \$cronLog
-git -C $webrootpath/$filename fetch --quiet
-git -C $webrootpath/$filename remote prune origin
-git -C $webrootpath/$filename checkout -f --quiet
-git -C $webrootpath/$filename pull -f --quiet
+git -C $webrootpath fetch --quiet
+git -C $webrootpath remote prune origin
+git -C $webrootpath checkout -f --quiet
+git -C $webrootpath pull -f --quiet
 success=\$?
 if [ \$success -eq 0 ]; then
     echo \`date +'%Y-%m-%d %H:%M:%S'\`" ::: Git Pull END" >> \$cronLog
